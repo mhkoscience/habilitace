@@ -1,0 +1,485 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta author="Michal H. Kolář">
+
+	<title>
+        Počítačové simulace velkých biomolekulových komplexů
+    </title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.mhk.css" id="theme">
+
+</head>
+	<body>
+        <div class="reveal">
+	        <div class="slides">
+<!--
+============ SLIDES START HERE ============
+-->
+
+
+
+<section style="text-align: left">
+    <h2 style="margin-top:1em; font-size: 48px">
+        Počítačové simulace velkých biomolekulových komplexů
+    </h2>
+    <div class="leftcol" style="width:48%; margin-top:0em">
+        <h3 style="margin-top: 6em; margin-bottom: 0em">Michal H. Kolář</h3>
+        <!--h4><a href="http://mhko.science/contact" target="_blank">http://mhko.science/contact</a></h4-->
+        <h4 style="margin-top: 1em"><a href="http://mhko.science/habilitace" target="_blank">http://mhko.science/habilitace</a></h4>
+    </div>
+    <div class="rightcol" style="width:52%; margin-top:-2em">
+        <video width="100%" nocontrols autoplay loop>
+            <source data-src="./media/out-rna.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+
+<section style="text-align: left">
+    <h2 style="margin-top:1em; font-size: 48px">
+        Počítačové simulace velkých biomolekulových komplexů
+    </h2>
+    <div class="leftcol" style="width:48%; margin-top:0em">
+        <ol style="margin-top:3em">
+            <li>životopis + pedagogika</li>
+            <li>teorie simulací</li>
+            <li>simulační studie</li>
+        </ol>
+    </div>
+    <div class="rightcol" style="width:52%; margin-top:-2em">
+        <video width="100%" nocontrols autoplay loop>
+            <source data-src="./media/out-rna.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+
+<section>
+    <div class="r-stack">
+        <img src="./media/loga/loga-1.png">
+        <img src="./media/loga/loga-2.png" class="fragment">
+        <img src="./media/loga/loga-3.png" class="fragment">
+        <img src="./media/loga/loga-4.png" class="fragment">
+    <div>
+</section>
+
+
+<section style="text-align: left">
+    <h3>Pedagogická činnost</h3>
+    <h4 style="margin-top: 1em">1. ročníky</h4>
+    <p>
+        Seminář programu chemie (50 studentek a studentů)
+    </p>
+    <h4 style="margin-top: 1em">2. ročníky</h4>
+    <p>
+        Fyzikální chemie A/B (50 studentek a studentů)<br>
+        laboratoře Fyzikální chemie (30 studentek a studentů)
+    </p>
+    <h4 style="margin-top: 1em">3. ročníky</h4>
+    <p>
+        Spektroskopické metody (5 studentek a studentů)
+    </p>
+</section>
+
+
+<section data-background-image="./media/bestvina.jpg"
+         data-background-size="cover"
+         data-background-position="bottom">
+</section>
+
+
+<section style="text-align: left;">
+    <div class="leftcol" style="width: 40%">
+        <img src="./media/loga/czexpats-horiz.png" style="width:70%"><br>
+        <img src="./media/loga/avh.png" style="width:70%">
+    </div>
+    <div class="rightcol" style="width:59%">
+        <h3 style="margin-top:1em">Humboldt alumni award</h3>
+        <p>
+            &bdquo;Towards better academic culture through sharing czexpats' experience&ldquo;
+        </p>
+        <p>
+            2019/10 &ndash; VŠCHT Praha<br>
+            2020/02 &ndash; MUNI Brno<br>
+            2020/11 &ndash; online<br>
+            2021/12 &ndash; online<br>
+            2022/03 &ndash; MUNI Brno<br>
+            2022/06 &ndash; VŠCHT Praha<br>
+            2022/06 &ndash; Štramberk<br>
+            2022/10 &ndash; Olomouc<br>
+            2023/01 &ndash; Vestec<br>
+            2023/04 &ndash; MUNI Brno<br>
+        </p>
+    </div>
+</section>
+
+
+<section style="text-align: left">
+    <img src="./media/team.jpg" style="width: 100%">
+    <p>
+        <span style="font-weight: 600">Alumni</span>: Ondřej Strnad, Iva Švecová, Tereza Svatoňová
+    </p>
+    <p>
+        <span style="font-weight: 600">SOČ</span>: Jiří Kubíček, Lucie Havránková, Arian A. Ott. 
+    </p>
+    <h3 style="margin-top: 2em; color: limegreen" class="fragment">Počítačové simulace pro studium biomolekul</h3>
+</section>
+
+
+<section data-background-image="./media/ubq/ubq.png"
+         data-background-size=90%
+         data-background-position="50% 30%">
+    <blockquote style="text-align: center; border: 2px lightgray solid; margin-top: 13em" class="fragment">
+        Výpočty iterativní povahy, které poskytují statistický soubor biomolekulárních konformací.
+    </blockquote>
+</section>
+
+
+<section>
+    <h3>Klasické simulace molekulové dynamiky</h3>
+    <div class="r-stack">
+        <img src="./media/simulacni-box/box-1.png" style="width:70%">
+        <img src="./media/simulacni-box/box-2.png" style="width:70%" class="fragment">
+        <img src="./media/simulacni-box/box-3.png" style="width:70%" class="fragment">
+        <img src="./media/simulacni-box/box-4.png" style="width:70%" class="fragment">
+        <img src="./media/simulacni-box/box-5.png" style="width:70%" class="fragment">
+    </div>
+</section>
+
+
+<section>
+    <img src="./media/simulace/simulace.png" style="margin-top:1em">
+</section>
+
+
+<section style="text-align:left">
+    <h3>Interakční potenciál / force field</h3>
+
+    <blockquote style="text-align: center; border: 2px lightgray solid">
+    V(<b>x</b>) = vazebné + nevazebné
+    </blockquote>
+
+    <h4 style="margin-top:1em">Vazebné</h4>
+    <p>
+        harmonické funkce pro vazby a úhly + kosinus torzí
+    </p>
+    
+    <h4 style="margin-top: 2em">Nevazebné</h4>
+    <p>
+        Lennard-Jones + Coulomb
+    <p>
+    <p>
+        různá vylepšení: NN, cut-off, posun, Ewald/PME, atp.
+    </p>
+</section>
+
+
+<section>
+    <h3>Specifika velkých biomolekulových komplexů</h3>
+    <div style="display: flex; justify-content: space-between">
+        <div style="width:32%">
+            <p style="font-size: smaller">
+                <a href="https://pdb101.rcsb.org/motm/181" target="_blank">CRISPR Cas9</a>
+            </p>
+            <img src="./media/complex-crispr.jpg" style="width:90%">
+        </div>
+        <div style="width:32%">
+            <p style="font-size: smaller">
+                <a href="https://pdb101.rcsb.org/motm/246" target="_blank">SARS-CoV2 spike</a>
+            </p>
+            <img src="./media/complex-spike.jpg" style="width:70%">
+        </div>
+        <div style="width:32%">
+            <p style="font-size: smaller">
+                <a href="https://pdb101.rcsb.org/motm/166" target="_blank">proteazom</a>
+            </p>
+            <img src="./media/complex-proteasome.jpg" style="width:60%">
+        </div>
+    </div>
+    <p style="font-size: smaller">https://pdb101.rcsb.org/motm č. 181, 246, 166</p>
+</section>
+
+
+<section>
+    <h3 style="margin-top:3em">Příklady simulačních studií</h3>
+</section>
+
+<section>
+    <img src="./media/translace/translace.png" style="width:70%">
+</section>
+
+
+<section data-background-video="./media/ribosome-intro.mp4"
+         data-background-video-loop="true"
+         data-background-color="white"
+         data-background-size="contain">
+    &nbsp;
+</section>
+
+
+<section style="text-align: left">
+    <div class="leftcol" style="width:40%">
+        <img src="./media/vemp.png">
+    </div>
+    <div class="rightcol" style="width: 58%; font-size:smaller">
+        <h4 style="margin-top: 0.5em">Kotranlační balení rodícího se peptidu</h4>
+        <p>
+            H. Grubmüller (MPI-NAT Göttingen)<br>
+            S. M. Vaiana (Arizona State Uni)
+        </p>
+        <p>
+            Kolář et al.: <i>Folding of VemP into translation-arresting secondary structure is driven by the ribosome exit tunnel</i>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/35150281" target="_blank">PMID: 35150281</a>.
+        </p>
+        <p>
+            bakalářská práce I. Švecové<br>
+            diplomová práce J. Cikharta<br>
+            dizertační práce M. Černekové
+        </p>
+
+        <div style="background-color:#B9FEB9; padding:1.5em; margin-top: 1em" class="fragment">
+            Za vznik sekundární struktury VemP je zodpovědný ribozomální tunel.
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="leftcol" style="width: 58%; font-size: smaller">
+        <img src="./media/pdf-global.png">
+    </div>
+    <div class="rightcol" style="width: 40%">
+        <img src="./media/pdf/pdf.png">
+    </div>
+</section>
+
+
+<section>
+    <div class="leftcol" style="width: 58%; font-size: smaller">
+        <h4 style="margin-top: 0.5em">Interakce peptidové deformylázy s&nbsp;ribozomem</h4>
+        <p>
+            McGrath et al.: <i>Binding of the peptide deformylase on the ribosome surface modulates the exit tunnel interior</i>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/36335428" target="_blank">PMID: 36335428</a>.
+        </p>
+        <p>
+            SOČ J. Kubíčka</br>
+            bakalářská práce H. McGratha<br>
+            diplomová práce H. McGratha<br>
+            dizertační práce M. Černekové
+        </p>
+        <div style="background-color:#B9FEB9; padding:1.5em; margin-top: 1em" class="fragment">
+            Pomocí simulačních dat jsme zkonstruovali robustní prediktor přítomnosti nebo absence PDF na povrchu ribozomu.
+        </div>
+    </div>
+    <div class="rightcol" style="width: 40%">
+        <img src="./media/pdf/pdf.png">
+    </div>
+</section>
+
+<section>
+    <img src="./media/tunel/tunel.png" style="width: 60%">
+    <p>
+        Přenost signálu mezi povrchem ribozomu a vnitřní částí tunelu.
+    </p>
+</section>
+
+
+<section data-background-image="./media/zuzeni/zuzeni-prehled.png"
+         data-background-size=70%
+         data-background-position="50% 60%">
+        <h4>Zúžení ribozomálního tunelu</h4>
+</section>
+
+
+<section data-background-image="./media/zuzeni/zuzeni-soubory.png"
+         data-background-size=80%
+         data-background-position="50% 60%">
+</section>
+
+
+<section data-background-image="./media/zuzeni/zuzeni-grafy.png"
+         data-background-size=80%
+         data-background-position="50% 60%">
+</section>
+
+<section style="text-align: left">
+    <h4>Zúžení ribozomálního tunelu</h4>
+    <p>
+        diplomová práce T. Svatoňové<br>
+        dizertační práce M. Černekové
+    </p>
+    <div style="background-color:#B9FEB9; padding:1.5em; margin-top: 1em" class="fragment">
+        Zúžení ribozomálního tunel tvořené proteiny uL4 a uL22 je flexibilní. Pro určité délky
+        rodících se proteinů se může dočasně uzavírat.
+    </div>
+</section>
+
+
+<section style="text-align: left">
+    <h2 style="margin-top:1em; font-size: 48px">
+        Počítačové simulace velkých biomolekulových komplexů
+    </h2>
+    <div class="leftcol" style="width:48%; margin-top:0em">
+        <ol style="margin-top:3em">
+            <li>životopis + pedagogika</li>
+            <li>teorie simulací</li>
+            <li>simulační studie</li>
+        </ol>
+    </div>
+    <div class="rightcol" style="width:52%; margin-top:-2em">
+        <video width="100%" nocontrols autoplay loop>
+            <source data-src="./media/out-rna.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+
+<section style="text-align: left">
+    <h3>K dalšímu čtení</h3>
+    
+    <p>
+        Bock, Gabrielli, Kolář, Grubmüller (2023): <i>Simulation of Complex Biomolecular Systems: The Ribosome Challenge</i>,
+        <a href="https://pubmed.ncbi.nlm.nih.gov/36719969" target="_blank">PMID: 36719969</a>
+    </p>
+
+    <p>
+        Bock, Kolář, Grubmüller (2018): <i>Molecular simulations of the ribosome and associated translation factors</i>,
+        <a href="https://pubmed.ncbi.nlm.nih.gov/29202442" target="_blank">PMID: 29202442</a>
+    </p>
+    
+    <p>
+        Kolář (2022): <i>Kotranslační děje aneb první okamžiky života proteinu</i>,
+        <a href="http://chemicke-listy.cz/ojs3/index.php/chemicke-listy/article/view/3941" target="_blank">Chemické listy</a>
+    </p>
+
+    <p>
+        Kolář (2018): <i>Jak se rodí proteiny</i>,
+        <a href="https://vesmir.cz/cz/casopis/archiv-casopisu/2018/cislo-5/jak-se-rodi-proteiny.html" target="_blank">Vesmír</a>
+    </p>
+    <h4 style="margin-top: 3em"><a href="http://mhko.science/habilitace" target="_blank">http://mhko.science/habilitace</a></h4>
+</section>
+
+
+<section>
+    <div class="leftcol" style="width:69%">
+        <p style="width: 90%; font-size: smaller">
+            Lars Bock, Agnieszka Bronowska, Paolo Carloni, Marek Eliáš, Helmut Grubmüller, Jan Heyda, 
+            Klára Hlouchová, Pavel Hobza, Jiří Kolafa, Tomáš Kubař, Petr Slavíček, Oriana Tabarrini
+        </p>
+
+        <img src="./media/loga/gacr.png" style="height: 70px; margin-bottom: 1em; margin-top: 1em">
+            <span style="padding-left: 2em; position: relative; bottom: 1.5em; font-size:smaller">19-06479Y, 23-05557S, 23-05764S</span><br>
+        <img src="./media/loga/it4i.png" style="height: 50px; margin-bottom: 1em; margin-top: 0"><br>
+        <img src="./media/loga/mpcdf.png" style="height: 60px; margin-bottom: 1em; margin-top: 0"><br>
+        <img src="./media/loga/hlrs.png" style="height: 70px; margin-top: 0"><br>
+    </div>
+    <div class="rightcol" style="width:30%">
+        <img src="./media/rodina.jpg" style="width:100%">
+    </div>
+</section>
+
+
+<section>
+<!-- pauza -->
+</section>
+
+
+<section style="text-align:left">
+    <h3>Technické detaily</h3>
+    <ul>
+        <li>silové pole Amber ff12, SPC/E voda</li>
+        <li>v-sites na vodíkových atomech, časový krok 4 fs</li>
+        <li>GROMACS, Plumed</li>
+    </ul>
+    <h3 style="margin-top: 0.5em">Simulační výkon</h3>
+    <ul>
+        <li>5 ns/den na desktopové GPU</li>
+        <li>50 ns/den na superpočítači typu Karolina, Ostrava (bez GPU)</li>
+        <li>100000 ns/den na Anton3, Pittsburgh (512 uzlů)</li>
+    </ul>
+</section>
+
+
+<section>
+    <h3>Regrese hlavních komponent</h3>
+    <div class="r-stack" style="margin-top:1em">
+        <img src="./media/fma/fma-0.png" style="width:70%">
+        <img src="./media/fma/fma-1.png" style="width:70% "class="fragment">
+    </div>
+</section>
+
+
+<section>
+    <h3>Regrese hlavních komponent</h3>
+    <div class="r-stack" style="margin-top: 1em">
+        <img src="./media/histograms/histograms-0.png">
+        <img src="./media/histograms/histograms-1.png" class="fragment">
+    </div>
+</section>
+
+
+<section>
+    <h3>VemP simulace vs. cryo-EM</h3>
+    <img src="./media/vemp-anchor-struct.png">
+</section>
+
+<section style="text-align: left">
+    <h3 style="margin-bottom:1em">Robert Vácha</h3>
+
+    <h4>ad VemP11: Jaká by byla vhodná kolektivní proměnná pro studium balení &alpha;-helixu?</h4>
+
+    <h4>ad zúžení: Jaká je odhadovaná chyba profilu PMF?</h4>
+    
+    <h4>ad zúžení: Jak byl identifikován počet stavů MSM a jeho vliv na výsledky?</h4>
+</section>
+
+
+<section style="text-align: left">
+    <h3 style="margin-bottom:1em">Lukasz Cwiklik</h3>
+
+    <h4>Jaká je role kineticky a termodynamicky řízených procesů v ribozomu? Jak vhodné jsou MD simulace pro jejich popis?</h4>
+
+    <h4>Poskytují simulace započaté s různými distribucemi rychlostí různé trajektorie?</h4>
+</section>
+
+
+<section style="text-align: left">
+    <h3 style="margin-bottom:1em">Radka Svobodová</h3>
+
+    <h4>Jak ukládáte simulační data?</h4>
+
+    <h4>Jak lze využít AlphaFold pro váš výzkum? Je vhodný pro studium RNA?</h4>
+
+    <h4>Jak jste spokojeni s využitím DSSP?</h4>
+
+    <h4>Proč existuje jen malé množství proteinů (z ohromného množství teoreticky možných)?</h4>
+</section>
+<!--
+============ SLIDES END HERE ============
+-->
+            </div>
+        </div>
+
+		<script src="dist/reveal.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+                autoPlayMedia: true,
+                controls: false,
+                progress: true, 
+                slideNumber: true,
+                transition: 'none', 
+                backgroundTransition: 'none',
+                center: false,
+			});
+		</script>
+	</body>
+</html>
+        
